@@ -2,6 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!--
+					spring-boot-build（spring-start的版本号）
+				|						|
+		spring-boot-project	  spring-boot-dependencies（所有的依赖注册）
+									    |																		 |
+							    spring-boot-parent（所有插件的依赖和版本号定义）						spring-boot-starter-parent
+										|																	 	 |
+spring-boot-tests spring-boot-samples-invoker	spring-boot		spring-boot-actuator  spring-boot-starters ...	spring-boot-samples
+
+
+	-->
+
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-build</artifactId>

@@ -16,15 +16,15 @@
 
 package org.springframework.boot.autoconfigure;
 
+import org.springframework.core.io.UrlResource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
+import org.springframework.util.StringUtils;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Set;
-
-import org.springframework.core.io.UrlResource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
-import org.springframework.util.StringUtils;
 
 /**
  * Internal utility used to load {@link AutoConfigurationMetadata}.
@@ -44,6 +44,12 @@ final class AutoConfigurationMetadataLoader {
 
 	static AutoConfigurationMetadata loadMetadata(ClassLoader classLoader, String path) {
 		try {
+			/**
+			 * 双亲委托机制：
+			 * 	应用加载器
+			 * 	系统加载器
+			 * 	根加载器
+			 */
 			Enumeration<URL> urls = (classLoader != null) ? classLoader.getResources(path)
 					: ClassLoader.getSystemResources(path);
 			Properties properties = new Properties();

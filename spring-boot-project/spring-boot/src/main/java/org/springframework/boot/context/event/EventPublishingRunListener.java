@@ -53,6 +53,7 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 	public EventPublishingRunListener(SpringApplication application, String[] args) {
 		this.application = application;
 		this.args = args;
+		//todo SpringApplication to ApplicationListener
 		this.initialMulticaster = new SimpleApplicationEventMulticaster();
 		for (ApplicationListener<?> listener : application.getListeners()) {
 			this.initialMulticaster.addApplicationListener(listener);
@@ -66,11 +67,17 @@ public class EventPublishingRunListener implements SpringApplicationRunListener,
 
 	@Override
 	public void starting() {
+		/**
+		 * ApplicationStartingEvent开启事件
+		 */
 		this.initialMulticaster.multicastEvent(new ApplicationStartingEvent(this.application, this.args));
 	}
 
 	@Override
 	public void environmentPrepared(ConfigurableEnvironment environment) {
+		/**
+		 * ApplicationEnvironmentPreparedEvent
+		 */
 		this.initialMulticaster
 				.multicastEvent(new ApplicationEnvironmentPreparedEvent(this.application, this.args, environment));
 	}

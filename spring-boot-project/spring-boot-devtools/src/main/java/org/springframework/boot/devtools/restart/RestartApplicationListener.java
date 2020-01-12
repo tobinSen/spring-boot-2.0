@@ -40,6 +40,7 @@ public class RestartApplicationListener implements ApplicationListener<Applicati
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+		//ApplicationStartingEvent
 		if (event instanceof ApplicationStartingEvent) {
 			onApplicationStartingEvent((ApplicationStartingEvent) event);
 		}
