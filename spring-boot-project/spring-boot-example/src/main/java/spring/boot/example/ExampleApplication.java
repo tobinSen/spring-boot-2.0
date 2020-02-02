@@ -3,8 +3,6 @@ package spring.boot.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class ExampleApplication {
@@ -87,9 +85,9 @@ public class ExampleApplication {
 		//方式一
 		SpringApplication.run(ExampleApplication.class, args);
 		//方式二
-		SpringApplication springApplication = new SpringApplication(ExampleApplication.class);
-		ConfigurableApplicationContext context = springApplication.run(args);
+		//SpringApplication springApplication = new SpringApplication(ExampleApplication.class);
+		//ConfigurableApplicationContext context = springApplication.run(args);
 		//方式三
-		ConfigurableApplicationContext configurableApplicationContext = new SpringApplicationBuilder(ExampleApplication.class).run(args);
+		//ConfigurableApplicationContext configurableApplicationContext = new SpringApplicationBuilder(ExampleApplication.class).run(args);
 	}
 }
